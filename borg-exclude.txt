@@ -1,0 +1,144 @@
+# ============================================
+# BorgBackup Exclude Patterns
+# Ubuntu Server 24.04
+# ============================================
+
+# System virtual filesystems (CRITICAL - never backup)
+/proc
+/sys
+/dev
+/run
+
+# Temporary directories
+/tmp
+/var/tmp
+/var/cache
+
+# Mount points and external media
+/mnt
+/media
+/lost+found
+
+# Network filesystems (backup at source)
+/net
+/nfs
+
+# ============================================
+# User cache and temporary files
+# ============================================
+/home/*/.cache
+/home/*/.thumbnails
+/home/*/.local/share/Trash
+/home/*/.gvfs
+/home/*/.Private
+/home/*/.vscode-server
+/home/*/.local
+/home/*/.oh-my-zsh
+/home/*/.docker
+/home/*/.shell.pre-oh-my-zsh
+/root/.cache
+
+# ============================================
+# Application caches
+# ============================================
+
+# Browser caches
+/home/*/.mozilla/firefox/*/cache2
+/home/*/.mozilla/firefox/*/Cache
+/home/*/.config/google-chrome/*/Cache
+/home/*/.config/google-chrome/*/Service Worker
+/home/*/.config/chromium/*/Cache
+/home/*/.config/BraveSoftware/*/Cache
+
+# Snap caches
+/var/lib/snapd/cache
+/var/lib/snapd/snaps/*.snap
+
+# APT cache (can be re-downloaded)
+/var/cache/apt/archives/*.deb
+
+# ============================================
+# Container and virtualization data
+# ============================================
+
+# Docker (backup containers separately with docker save/export)
+/var/lib/docker/volumes
+/var/lib/docker/overlay2
+/var/lib/docker/image
+/var/lib/docker/containers/*/checkpoints
+
+# LXD/LXC (backup via lxd export)
+/var/lib/lxd/storage-pools
+/var/snap/lxd/common/lxd/storage-pools
+/var/lib/lxc
+
+# libvirt VMs (backup separately)
+/var/lib/libvirt/images
+
+# ============================================
+# Development and build artifacts
+# ============================================
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+node_modules
+.npm
+.gradle
+.cargo/registry
+.cargo/git
+target/debug
+target/release
+*.o
+*.so
+*.a
+.git/objects
+
+# ============================================
+# Editor and swap files
+# ============================================
+*.swp
+*.swo
+*.swn
+*~
+.*.sw?
+\#*\#
+
+# ============================================
+# Log files (keep current logs, exclude rotated)
+# ============================================
+*.log.[0-9]*
+*.log.gz
+*.log.bz2
+*.log.xz
+/var/log/journal/*.journal~
+
+# ============================================
+# Database files (backup via dump instead)
+# ============================================
+# Uncomment if you backup databases separately
+# /var/lib/mysql
+# /var/lib/postgresql
+# /var/lib/mongodb
+
+# ============================================
+# Large files and media processing
+# ============================================
+*.iso
+*.qcow2
+*.vdi
+*.vmdk
+*.vhdx
+
+
+# Exact path
+# /home/user/temp
+
+# Wildcard (single directory level)
+# /home/*/Downloads
+
+# Recursive wildcard
+# /home/**/cache
+
+# File extension anywhere
+# *.tmp

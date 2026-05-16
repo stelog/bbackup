@@ -1,0 +1,22 @@
+# Path prefix (default behavior)
+# Exclude exact path
+P /var/log/journal
+
+# Path full match
+# Must match the complete path
+pf /home/user/.cache
+
+# Recursive exclude (match anywhere in tree)
+# Exclude any directory named 'cache' anywhere
+**/cache/**
+
+# Regular expression
+# More complex patterns
+re:.*\.tmp$
+re:/home/[^/]+/Downloads/.*
+
+# Shell-style pattern
+sh:/home/*/.*cache*
+
+# Path prefix with wildcards
+pp:/var/lib/*/cache

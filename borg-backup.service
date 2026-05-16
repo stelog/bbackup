@@ -1,0 +1,15 @@
+[Unit]
+Description=Borg Backup Service
+After=network-online.target
+Wants=network-online.target
+RequiresMountsFor=/mnt/backup_borg
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/borg-backup.sh
+User=root
+Group=root
+
+# Security hardening
+PrivateTmp=yes
+NoNewPrivileges=yes
