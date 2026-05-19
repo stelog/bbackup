@@ -1,3 +1,4 @@
 borg-passphrase
 *.log
 auto-installed-packages.txt
+installed-packages.txt

@@ -4,7 +4,6 @@ Requires=borg-backup.service
 
 [Timer]
 # Run daily at 2 AM
-OnCalendar=daily
 OnCalendar=02:00
 Persistent=true
 RandomizedDelaySec=15min
