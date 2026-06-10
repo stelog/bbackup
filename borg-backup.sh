@@ -267,7 +267,7 @@ echo "========================================="
 PRUNE_CMD=(
     borg prune
     --list
-    --prefix "$(hostname)-"
+    --glob-archives "$(hostname)-*"
     --keep-daily="$KEEP_DAILY"
     --keep-weekly="$KEEP_WEEKLY"
     --keep-monthly="$KEEP_MONTHLY"
@@ -347,6 +347,8 @@ echo "========================================="
 # Exit with error if backup or prune failed
 if [ $BACKUP_EXIT -ne 0 ] || [ $PRUNE_EXIT -ne 0 ]; then
     echo "ERROR: Backup or prune operation failed!"
+    echo "BACKUP_EXIT = ${BACKUP_EXIT}"
+    echo "PRUNE_EXIT = ${PRUNE_EXIT}"
     exit 1
 fi
 
